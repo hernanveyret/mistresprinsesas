@@ -18,7 +18,7 @@ const Menu = ({ openMenu,
     let url = ''
     if(text === 'Alias'){
       setTextoCompartir('Alias')
-      url = 'mistresprincesas'
+      url = 'Patripatri09'
     }else {
       setTextoCompartir('CVU/CBU')
       url = 'mistresprincesas'

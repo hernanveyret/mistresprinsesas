@@ -91,7 +91,7 @@ const EnviarPedido = ({productosEnCarrito,
   const handleCompartir = (text) => {
     let url = ''
     if(text === 'Alias'){
-      url = 'mistresprincesas'
+      url = 'Patripatri09'
     }else {
       url = 'mistresprincesas' //CVU/CBU
     }
