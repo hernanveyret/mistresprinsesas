@@ -18,10 +18,10 @@ const Menu = ({ openMenu,
     let url = ''
     if(text === 'Alias'){
       setTextoCompartir('Alias')
-      url = 'Patripatri09'
+      url = 'patripatri09'
     }else {
       setTextoCompartir('CVU/CBU')
-      url = 'mistresprincesas'
+      url = '1430001713034002480016'
     }
     navigator.clipboard.writeText(url)
       .then(() => {

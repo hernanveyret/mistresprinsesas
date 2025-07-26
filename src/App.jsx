@@ -183,7 +183,7 @@ useEffect(() => {
   // Enviar mensaje por whatsApp
   const handleEnviarWhatsApp = () => {  
   //const mensaje = crearMensajeWhatsApp(carrito, nombre, direccion, telefono);
-  const mensaje = 'Hola, quiero hacer una consulta desde e-shop!'
+  const mensaje = 'Hola, quiero hacer una consulta desde Mis Tres Princesas'
   const numeroVendedor = "3364039496"; // con código país, sin +
   const url = `https://wa.me/${numeroVendedor}?text=${encodeURIComponent(mensaje)}`;
   window.open(url, "_blank");
@@ -383,9 +383,9 @@ useEffect(() => {
       <footer>
         <section className="footer-info">
           <p>Mis Tres Princesas</p>
-          <p>America 617</p>
-          <p>1134025499</p>
-          <p>Lunes a Lunes 8 a 22h</p>
+          <p>Primero de mayo 527</p>
+          <p>3364039496</p>
+          <p>De 11 a 16hs y de 19 a 22:30hs</p>
         </section>
         <section className="footer-programador-info">
           <div>
