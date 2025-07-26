@@ -54,7 +54,7 @@ function App() {
 
   // copia al portapapeles la url
    const sharedApp = () => {
-    navigator.clipboard.writeText('https://s-shop-eight.vercel.app/') 
+    navigator.clipboard.writeText('https://mistresprinsesas.vercel.app/') 
     .then(() => {
       setSharedLink(true)
       setTimeout(() => {
@@ -184,7 +184,7 @@ useEffect(() => {
   const handleEnviarWhatsApp = () => {  
   //const mensaje = crearMensajeWhatsApp(carrito, nombre, direccion, telefono);
   const mensaje = 'Hola, quiero hacer una consulta desde e-shop!'
-  const numeroVendedor = "541134025499"; // con código país, sin +
+  const numeroVendedor = "3364039496"; // con código país, sin +
   const url = `https://wa.me/${numeroVendedor}?text=${encodeURIComponent(mensaje)}`;
   window.open(url, "_blank");
 };

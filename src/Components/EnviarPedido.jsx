@@ -82,7 +82,7 @@ const EnviarPedido = ({productosEnCarrito,
   }
   
   const handleEnviarWhatsApp = (pedido) => {    
-  const numeroVendedor = "541134025499"; // con código país, sin +
+  const numeroVendedor = "3364039496"; // con código país, sin +
   const url = `https://wa.me/${numeroVendedor}?text=${encodeURIComponent(pedido)}`;
   window.open(url, "_blank");
 };
@@ -91,9 +91,9 @@ const EnviarPedido = ({productosEnCarrito,
   const handleCompartir = (text) => {
     let url = ''
     if(text === 'Alias'){
-      url = 'hernanveyret.mp'
+      url = 'mistresprincesas'
     }else {
-      url = '0000003100083084244362'
+      url = 'mistresprincesas' //CVU/CBU
     }
     navigator.clipboard.writeText(url)
       .then(() => {
