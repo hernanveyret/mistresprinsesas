@@ -1,0 +1,26 @@
+.lds-roller {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
+}
+
+.lds-ring {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #32CD32;         /* Color del aro */
+  border-top-color: transparent;     /* Hace que se vea el giro */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,166 @@
+.container-mis-pedidos {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+.container-mis-pedidos h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2e7d32;
+}
+
+.mis-pedidos {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+.titulo-h3 {
+  margin-left: 1rem;
+}
+.container-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.productos {
+  flex: 2;
+}
+
+.container-total {
+  flex: 1;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+.resumen-linea {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  margin: 4px 0;
+}
+
+.container-total h3 {
+  border-bottom: 1px solid rgb(187, 184, 184);
+  padding-bottom: .5rem;
+}
+.mis-pedidos-info {
+  border-top: 1px solid #e0e0e0;
+  padding: 0.5rem 0;
+}
+
+.mis-pedidos-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mis-pedidos-info li {
+  font-size: 0.95rem;
+}
+
+.mis-pedidos-info li:nth-child(1) {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.btn-mis-pedidos {
+  background-color: rgb(223, 218, 218);
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  padding: 0.4rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-mis-pedidos:hover {
+  background-color: #aca8a8;
+}
+
+.botones-acciones {
+  width: 100%;;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.container-delete {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(128, 128, 128, 0.493);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 800;
+}
+
+.cuadro {
+  width: 40%;
+  height: auto;
+  padding: 1rem;
+  background-color:#A5D6A7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.delete-texto {
+  text-align: center;
+}
+.container-delete-btn {  
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.btn-delete {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.btn-delete:hover {
+  background-color: #c5c0c0;
+}
+@media (max-width: 600px) {
+  .container-mis-pedidos {
+    padding: 1rem;
+  }
+
+  .mis-pedidos {
+    padding: 1rem;
+  }
+
+  .container-info {
+    flex-direction: column;
+  }
+
+  .container-total {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .mis-pedidos-info li {
+    font-size: 0.9rem;
+  }
+  .cuadro {
+    width: 80%;
+  }
+}

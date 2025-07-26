@@ -1,0 +1,49 @@
+.container-app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1; /* ✅ Ocupa el espacio libre y empuja el footer hacia abajo */
+}
+
+footer {
+  background-color: grey;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+.footer-info, .footer-programador-info {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+.footer-info {
+  flex-direction: column;
+}
+
+.footer-programador-info {
+  justify-content: center;
+  gap: 10px;
+}
+.footer-programador-info img {
+  width: 40px;
+}
+
+button {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1024px) { 
+  footer {
+  background-color: grey;
+  color: white;
+  display: flex;
+  flex-direction: row;
+}
+}

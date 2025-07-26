@@ -1,0 +1,107 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+.container-envio {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 500;
+  background-color: rgba(128, 128, 128, 0.493);
+}
+
+
+.formulario-envio {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 320px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  position: relative;
+  font-family: sans-serif;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.container-envio h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+}
+
+/* Botón cerrar (X) arriba a la derecha */
+.btn-cerrar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s;
+}
+
+.btn-cerrar:hover {
+  color: #000;
+}
+
+/* Formulario */
+.formulario-envio {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formulario-envio input,
+.formulario-envio select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 100%;
+}
+
+/* Botón enviar */
+.btn-enviar {
+  padding: 10px;
+  background-color: #45d4e3;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-enviar:hover {
+  background-color: #3cc0ce;
+}
+
+.btn-mp {
+  padding: .5rem;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  transition: .2s ease-in-out;
+}
+.btn-mp:hover {
+  background-color: grey;
+}
