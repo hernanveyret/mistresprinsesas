@@ -12,7 +12,7 @@ header {
   padding: .2rem;
   color: black;
   position: relative;
-  font-family: 'miami';
+  font-family: 'miami', sans-serif;
   font-size: 2rem;
 }
 header img {
