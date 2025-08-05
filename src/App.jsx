@@ -92,7 +92,7 @@ useEffect(() => {
 }, []);
 
 useEffect(() => {
-  if (productos.length > 1 && categorias.length > 1) {
+  if (productos.length >= 0 ) {
     setIsLoading(false);
 
     if (productosEnCarrito.length > 0) {
