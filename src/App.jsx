@@ -19,10 +19,9 @@ import ConfirmReturnProduct from './Components/ConfirmReturnProduct.jsx';
 function App() {
 
   const favoritosLocal = localStorage.getItem('m3p-favoritos');
-  const productosCarritoLocal = localStorage.getItem('m3p-carrito')
-  console.log(productosCarritoLocal)
-  const misPedidos = localStorage.getItem('m3p-mispedidos')
-  const [ verProducto, setVerProducto ] = useState([])  
+  const productosCarritoLocal = localStorage.getItem('m3p-carrito');
+  const misPedidos = localStorage.getItem('m3p-mispedidos');
+  const [ verProducto, setVerProducto ] = useState([]);
 
   const [ productos, setProductos ] = useState([]);
   const [ categorias, setCategorias ] = useState([])
@@ -98,7 +97,7 @@ useEffect(() => {
 
 useEffect(() => {
     if (productos.length === 0) return;
-    
+
   if (productos.length >= 0 ) {
     setIsLoading(false);
 

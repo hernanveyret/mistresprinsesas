@@ -17,6 +17,8 @@ const MisPedidos = ({ misPedidosGuardados,
   //Retornar productos al carrito de mis pedidos guardados
 const retornarProductos = (indice) => {
 const resultado = hayUndefined(misPedidosGuardados[indice], productos);
+console.log(resultado)
+console.log(productos)
 
   const nuevos = [...productosEnCarrito]; // Copia del carrito actual
 
