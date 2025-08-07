@@ -17,22 +17,34 @@ footer {
   align-items: center;
   font-size: 1rem;
 }
+.footer-logo {
+  width:40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+.footer-logo img {
+  width: 40%;
+}
 .footer-info, .footer-programador-info {
-  width: 50%;
+  width: 60%;
   display: flex;
   align-items: center;
   margin: 5px 0;
 }
 .footer-info {
   flex-direction: column;
+  text-align: center;
 }
 
 .footer-programador-info {
   justify-content: center;
   gap: 10px;
+  font-size: .8rem;
 }
 .footer-programador-info img {
-  width: 40px;
+  width: 30px;
 }
 
 button {
@@ -45,5 +57,14 @@ button {
   color: white;
   display: flex;
   flex-direction: row;
+}
+.footer-logo {
+  width:30%;
+  margin-top: 0;
+}
+
+.footer-logo img {
+  width: 30%;
+  
 }
 }
