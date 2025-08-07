@@ -111,7 +111,8 @@
   width: 40%;
   height: auto;
   padding: 1rem;
-  background-color:#A5D6A7;
+  background-color:#ee2c45;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

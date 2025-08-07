@@ -52,6 +52,23 @@ export const getDataCategorias = (callback) => {
   }
 };
 
+//Escuchar en tiempo real los datos bancarios
+export const getDataDatosBancarios = (callback) => {
+  try {
+    const unsubscribe = onSnapshot(collection(db,'datosBancarios'), snapshot => {
+      const usuarios = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+    }))
+    callback(usuarios);
+    //console.log(usuarios)
+  })
+  return unsubscribe;
+  } catch (error) {
+    callback([]);
+  }
+};
+
 export const getEnvio = (callback) => {
   try {
     const envioRef = doc(db, 'envio', 'precio');

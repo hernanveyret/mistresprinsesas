@@ -7,13 +7,17 @@ const MisPedidos = ({ misPedidosGuardados,
                       productos,
                       setProductosEnCarrito,
                       productosEnCarrito,
-                      setIsReturnPedido
+                      setIsReturnPedido,
+                      isExiste,
+                      setIsExiste
                     }) => {
   const [ isDelete, setIsDelete ] = useState(false);
   const [ iIndex, setIindex ] = useState(null);
 
   //Retornar productos al carrito de mis pedidos guardados
- const retornarProductos = (indice) => {
+const retornarProductos = (indice) => {
+const resultado = hayUndefined(misPedidosGuardados[indice], productos);
+
   const nuevos = [...productosEnCarrito]; // Copia del carrito actual
 
   misPedidosGuardados[indice].forEach(pro => {
@@ -31,7 +35,6 @@ const MisPedidos = ({ misPedidosGuardados,
       }
     }
   });
-
   setProductosEnCarrito(nuevos);
   timerBanner();
 };
@@ -40,9 +43,17 @@ const MisPedidos = ({ misPedidosGuardados,
     setIsReturnPedido(true);
     setTimeout(() => {
       setIsReturnPedido(false)
-    },3000);
+      setIsExiste(!isExiste)
+    },4000);
   };
 
+  // Ve si falta un producto en stock
+  const hayUndefined = (array, productos) => {
+  return array.some(pro => {
+    const existe = productos.find(p => String(p.id) === String(pro.id));
+    return existe === undefined;
+  });
+};
   const IsDeletepedido = ({iIndex}) => {
     return (      
       <div className="container-delete">

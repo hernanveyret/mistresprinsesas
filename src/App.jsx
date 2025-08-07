@@ -1,5 +1,5 @@
 import React,{ useState, useEffect, useRef} from 'react';
-import { getData, getDataCategorias, getEnvio } from './firebase/auth.js'
+import { getData, getDataCategorias, getEnvio, getDataDatosBancarios } from './firebase/auth.js'
 import './App.css'
 
 import InstallPrompt from './Components/InstallPrompt.jsx';
@@ -26,6 +26,7 @@ function App() {
   const [ productos, setProductos ] = useState([]);
   const [ categorias, setCategorias ] = useState([])
   const [ costoEnvio, setCostoEnvio ] = useState(0)
+  const [ banco, setBanco ] = useState([])
   const [ favoritos, setFavoritos ] = useState(favoritosLocal ? JSON.parse(favoritosLocal) : [] )
   const [ productosSeleccionados, setProductosSeleccionados] = useState([])
   const [ productosEnCarrito, setProductosEnCarrito ] = useState(productosCarritoLocal ? JSON.parse(productosCarritoLocal) : [] )
@@ -45,6 +46,7 @@ function App() {
   const [ onEnviarPedido, setOnEnviarPedido ] = useState(false);
   const [ onQr, setOnQr ] = useState(false)
   const [ isReturnPedido, setIsReturnPedido ] = useState(false);
+  const [ isExiste, setIsExiste ] = useState(true)
 
   const [ textoCompartir, setTextoCompartir ] = useState(null)
  
@@ -83,13 +85,16 @@ useEffect(() => {
   const unsubscribeProductos = getData(setProductos);
   const unsubscribeCategorias = getDataCategorias(setCategorias);
   const unsubscribeEnvio = getEnvio(setCostoEnvio);
+  const unsubscribeDatosBancarios = getDataDatosBancarios(setBanco);
     
   return () => {
     if (unsubscribeProductos) unsubscribeProductos();
     if (unsubscribeCategorias) unsubscribeCategorias();
     if (unsubscribeEnvio ) unsubscribeEnvio();
+    if (unsubscribeDatosBancarios ) unsubscribeDatosBancarios();
   };
 }, []);
+
 
 useEffect(() => {
   if (productos.length >= 0 ) {
@@ -191,7 +196,11 @@ useEffect(() => {
 
   return (
     <div className="container-app">
-      { isReturnPedido &&<ConfirmReturnProduct /> }
+      { isReturnPedido && 
+          <ConfirmReturnProduct 
+            isExiste={isExiste}
+            setIsExiste={setIsExiste}
+      /> }
       {
         onQr && 
         <VerQr 
@@ -209,6 +218,7 @@ useEffect(() => {
         setIsCarrito={setIsCarrito}
         setMisPedidosGuardados={setMisPedidosGuardados}
         misPedidosGuardados={misPedidosGuardados}
+        banco={banco}
         />
       }
       { 
@@ -227,6 +237,7 @@ useEffect(() => {
         setIsSharedConfirm={setIsSharedConfirm}
         setTextoCompartir={setTextoCompartir}
         setOnQr={setOnQr}
+        banco={banco}
       /> 
       }
       { onRepetido &&
@@ -339,6 +350,8 @@ useEffect(() => {
               setProductosEnCarrito={setProductosEnCarrito}
               productosEnCarrito={productosEnCarrito}
               setIsReturnPedido={setIsReturnPedido}
+              isExiste={isExiste}
+              setIsExiste={setIsExiste}
             />
         }
         {

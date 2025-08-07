@@ -9,7 +9,8 @@ const Menu = ({ openMenu,
                 setIsCarrito, 
                 setIsSharedConfirm, 
                 setTextoCompartir,
-                setOnQr
+                setOnQr,
+                banco
               }) => {
 
  
@@ -18,10 +19,10 @@ const Menu = ({ openMenu,
     let url = ''
     if(text === 'Alias'){
       setTextoCompartir('Alias')
-      url = 'patripatri09'
+      url = banco[0].alias
     }else {
       setTextoCompartir('CVU/CBU')
-      url = '1430001713034002480016'
+      url = banco[0].cvu
     }
     navigator.clipboard.writeText(url)
       .then(() => {

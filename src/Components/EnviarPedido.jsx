@@ -11,7 +11,8 @@ const EnviarPedido = ({productosEnCarrito,
                        setIsHome,
                        setIsCarrito,
                        setMisPedidosGuardados,
-                       misPedidosGuardados
+                       misPedidosGuardados,
+                       banco
                       }) => {
   const [ isShared, setIsShared ] = useState(false)
   const [ texto, setTexto ] = useState(null)
@@ -91,9 +92,9 @@ const EnviarPedido = ({productosEnCarrito,
   const handleCompartir = (text) => {
     let url = ''
     if(text === 'Alias'){
-      url = 'patripatri09'
+      url = banco[0].alias
     }else {
-      url = '1430001713034002480016' //CVU/CBU
+      url = banco[0].cvu //CVU/CBU
     }
     navigator.clipboard.writeText(url)
       .then(() => {
