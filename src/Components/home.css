@@ -142,7 +142,7 @@ main {
   transition: box-shadow 0.2s ease;
   cursor: pointer;
   display: flex;
-  margin-bottom: 5px;  
+  margin-bottom: 5px; 
 }
 
 .card-producto:hover {
@@ -273,14 +273,14 @@ main {
   }
 
   .card-producto {
-    width: 45%;        
+    width: 30%;        
     height: 160px;     
     padding: 6px;
     font-size: 16px;
   }
 
   .img-container {
-  width: 30%;
+  width: 40%;
   aspect-ratio: 1 / 1; 
   overflow: hidden;  
   display: flex;
