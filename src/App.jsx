@@ -18,9 +18,10 @@ import ConfirmReturnProduct from './Components/ConfirmReturnProduct.jsx';
 
 function App() {
 
-  const favoritosLocal = localStorage.getItem('e-shop-favoritos');
-  const productosCarritoLocal = localStorage.getItem('e-shop-carrito')
-  const misPedidos = localStorage.getItem('mispedidos')
+  const favoritosLocal = localStorage.getItem('m3p-favoritos');
+  const productosCarritoLocal = localStorage.getItem('m3p-carrito')
+  console.log(productosCarritoLocal)
+  const misPedidos = localStorage.getItem('m3p-mispedidos')
   const [ verProducto, setVerProducto ] = useState([])  
 
   const [ productos, setProductos ] = useState([]);
@@ -96,6 +97,8 @@ useEffect(() => {
 }, []);
 
 useEffect(() => {
+    if (productos.length === 0) return;
+    
   if (productos.length >= 0 ) {
     setIsLoading(false);
 
@@ -137,15 +140,15 @@ useEffect(() => {
   }
 
   useEffect(() => {
-    localStorage.setItem('e-shop-favoritos',JSON.stringify(favoritos));
+    localStorage.setItem('m3p-favoritos',JSON.stringify(favoritos));
   },[favoritos])
 
   useEffect(() => {
-    localStorage.setItem('e-shop-carrito', JSON.stringify(productosEnCarrito))
+    localStorage.setItem('m3p-carrito', JSON.stringify(productosEnCarrito))
   },[productosEnCarrito])
 
   useEffect(() => {
-    localStorage.setItem('mispedidos', JSON.stringify(misPedidosGuardados))
+    localStorage.setItem('m3p-mispedidos', JSON.stringify(misPedidosGuardados))
   },[misPedidosGuardados])
 
   useEffect(() => {
