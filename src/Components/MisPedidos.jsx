@@ -16,18 +16,32 @@ const MisPedidos = ({ misPedidosGuardados,
 
   //Retornar productos al carrito de mis pedidos guardados
 const retornarProductos = (indice) => {
-const resultado = hayUndefined(misPedidosGuardados[indice], productos);
-console.log(resultado)
-console.log(productos)
 
+// Recorremos solo hasta el penúltimo elemento
+let filtro = [];
+
+for (let i = 0; i < misPedidosGuardados[indice].length - 1; i++) {
+  let p = misPedidosGuardados[indice][i];
+
+  productos.forEach(pro => {
+    if (pro.id === p.id) {
+      filtro.push(p);
+    }
+  });
+
+  // Si no se encontró coincidencia en productos, agregamos {}
+  if (!productos.some(pro => pro.id === p.id)) {
+    filtro.push({});
+  }
+}
+
+const algo = filtro.some(pro => Object.keys(pro).length === 0);
+setIsExiste(algo)
   const nuevos = [...productosEnCarrito]; // Copia del carrito actual
-
   misPedidosGuardados[indice].forEach(pro => {
     const existe = productos.find(p => p.id === pro.id); // Verifica si existe en productos
-
     if (existe) {
       const indexEnCarrito = nuevos.findIndex(p => p.id === pro.id);
-
       if (indexEnCarrito !== -1) {
         // Si ya esta en el carrito se suma la cantidad
         nuevos[indexEnCarrito].cant += pro.cant || 1;
@@ -49,13 +63,6 @@ console.log(productos)
     },4000);
   };
 
-  // Ve si falta un producto en stock
-  const hayUndefined = (array, productos) => {
-  return array.some(pro => {
-    const existe = productos.find(p => String(p.id) === String(pro.id));
-    return existe === undefined;
-  });
-};
   const IsDeletepedido = ({iIndex}) => {
     return (      
       <div className="container-delete">
