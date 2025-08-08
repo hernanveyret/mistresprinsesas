@@ -47,6 +47,7 @@ function App() {
   const [ onQr, setOnQr ] = useState(false)
   const [ isReturnPedido, setIsReturnPedido ] = useState(false);
   const [ isExiste, setIsExiste ] = useState(true)
+  const [ isRetiro, setIsRetiro ] = useState(false)
 
   const [ textoCompartir, setTextoCompartir ] = useState(null)
  
@@ -219,6 +220,8 @@ useEffect(() => {
         setMisPedidosGuardados={setMisPedidosGuardados}
         misPedidosGuardados={misPedidosGuardados}
         banco={banco}
+        isRetiro={isRetiro}
+        setIsRetiro={setIsRetiro}
         />
       }
       { 
@@ -316,7 +319,7 @@ useEffect(() => {
             onClick={() => { 
             setIsCarrito(false);
             setIsHome(true);
-            setIsMisPedidos(false);
+            setIsMisPedidos(false);            
             }}
           >
             < img src="./img/carritoOn.webp" alt="Icono shop" />
@@ -352,6 +355,8 @@ useEffect(() => {
               setIsReturnPedido={setIsReturnPedido}
               isExiste={isExiste}
               setIsExiste={setIsExiste}
+              setIsRetiro={setIsRetiro}
+              isRetiro={isRetiro}
             />
         }
         {
@@ -389,6 +394,8 @@ useEffect(() => {
           setCantTotal={setCantTotal}
           setOnEnviarPedido={setOnEnviarPedido}
           formatoPesos={formatoPesos}
+          isRetiro={isRetiro}
+          setIsRetiro={setIsRetiro}          
           />
       }
        </main>  

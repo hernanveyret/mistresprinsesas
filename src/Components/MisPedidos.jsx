@@ -9,7 +9,9 @@ const MisPedidos = ({ misPedidosGuardados,
                       productosEnCarrito,
                       setIsReturnPedido,
                       isExiste,
-                      setIsExiste
+                      setIsExiste,
+                      setIsRetiro,
+                      isRetiro
                     }) => {
   const [ isDelete, setIsDelete ] = useState(false);
   const [ iIndex, setIindex ] = useState(null);
@@ -87,7 +89,6 @@ setIsExiste(algo)
   }
 
   const  borrarPedido = (indice) => {  
-    console.log(indice)  
     const filter = misPedidosGuardados.filter((pedido, index) => {
       if(index !==indice) return pedido
     })
@@ -125,7 +126,12 @@ setIsExiste(algo)
                 <div className="container-total">
                   <h3>Resumen de compra</h3>
                   <p className="resumen-linea"><span>Cant. Total:</span> <span>{pedido[indiceTotal - 1].cantTotal}</span></p>
-                  <p className="resumen-linea"><span>Envio:</span> <span>{formatoPesos(Number(pedido[indiceTotal - 1].costoEnvio))}</span></p>
+                  {
+                     pedido[indiceTotal - 1].costoEnvio === false ? 
+                    <p className="resumen-linea"><span>Retiro en el local</span></p>
+                    :
+                    <p className="resumen-linea"><span>Envio:</span> <span>{formatoPesos(Number(pedido[indiceTotal - 1].costoEnvio))}</span></p>
+                  }
                   <p className="resumen-linea"><span>Sub Total:</span> <span>{formatoPesos(pedido[indiceTotal - 1].subTotal)}</span></p>
                   <p className="resumen-linea"><span>Total:</span> <span>{formatoPesos(pedido[indiceTotal - 1].importeTotal)}</span></p>                  
                 <div className="botones-acciones">

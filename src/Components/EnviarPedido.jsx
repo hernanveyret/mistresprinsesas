@@ -12,7 +12,9 @@ const EnviarPedido = ({productosEnCarrito,
                        setIsCarrito,
                        setMisPedidosGuardados,
                        misPedidosGuardados,
-                       banco
+                       banco,
+                       isRetiro,
+                       setIsRetiro
                       }) => {
   const [ isShared, setIsShared ] = useState(false)
   const [ texto, setTexto ] = useState(null)
@@ -30,7 +32,7 @@ const EnviarPedido = ({productosEnCarrito,
   const guardarProducto = () => {
    const totalProductos = productosEnCarrito.reduce((ac, prod) => ac + prod.cant, 0);
    const subTotal = productosEnCarrito.reduce((ac, prod) => ac + (prod.cant * prod.precio), 0);
-   const importeTotal = Number(subTotal) + Number(costoEnvio.envio.envio);
+   const importeTotal = !isRetiro ? Number(subTotal) + Number(costoEnvio.envio.envio) : Number(subTotal);
    const fecha = new Date().toLocaleDateString('es-AR', {
     year: 'numeric',
     month: '2-digit',
@@ -46,9 +48,10 @@ const EnviarPedido = ({productosEnCarrito,
     pedidos.push({
       fecha,
       cantTotal: totalProductos,
-      costoEnvio: costoEnvio.envio.envio,
+      costoEnvio: !isRetiro ? costoEnvio.envio.envio : false,
       subTotal,
-      importeTotal
+      importeTotal,
+      isRetiro,
     });
   setMisPedidosGuardados([...misPedidosGuardados, pedidos] )
   }
@@ -56,7 +59,7 @@ const EnviarPedido = ({productosEnCarrito,
   const enviar = () => {
    const totalProductos = productosEnCarrito.reduce((ac, prod) => ac + prod.cant, 0);
    const subTotal = productosEnCarrito.reduce((ac, prod) => ac + (prod.cant * prod.precio), 0);
-   const importeTotal = Number(subTotal) + Number(costoEnvio.envio.envio)
+   const importeTotal = !isRetiro ? Number(subTotal) + Number(costoEnvio.envio.envio) : Number(subTotal);
   
     let pedido = 'Hola, Quiero Hacer un pedido:\n';
     productosEnCarrito.forEach((pro, index) => {
@@ -67,7 +70,7 @@ const EnviarPedido = ({productosEnCarrito,
       pedido += `*-------------------*\n`
     })
      pedido += `Cant. Productos: ${totalProductos}\n`;
-     pedido += `Costo envio: $${costoEnvio.envio.envio}\n`;
+     pedido +=  isRetiro ? 'Retira en el Local\n' : `Costo envio: $${costoEnvio.envio.envio}\n`;
      pedido += `Total a pagar: $${importeTotal}\n`;
      pedido += `Medio de pago: ${mp || ''}\n`;
      pedido += `*Nombre: ${watch('nombre')}*\n`;
