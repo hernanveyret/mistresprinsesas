@@ -45,8 +45,31 @@
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
 }
+.img-carrito {
+  width: 40%;
+  height: 40%;
+  aspect-ratio: 1 / 1; /* Contenedor cuadrado fijo */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 
+  
+}
+.img-carrito img {
+   width: auto;
+  height: auto;
+  max-width: 90%; /* Límite máximo = tamaño del contenedor */
+  max-height: 90%; /* Límite máximo = tamaño del contenedor */
+  min-width: 50%; /* Evita que imágenes muy pequeñas se vean mal */
+  min-height: 50%; /* Evita que imágenes muy pequeñas se vean mal */
+  object-fit: contain; /* Mantiene relación de aspecto SIN recortar */
+  object-position: center;
+  border-radius: 16px;
+}
 /* Imagen del producto */
+/*
 .img-carrito {
   width: 90px;
   height: 90px;
@@ -66,7 +89,7 @@
   border: 1px solid #ddd;
   display: block;
 }
-
+*/
 /* Info del producto */
 .info-carrito {
   margin-left: 1rem;
@@ -75,6 +98,7 @@
   justify-content: space-between;
   width: 100%;
   gap: 0.5rem;
+  
 }
 
 .info-carrito .titulo {
