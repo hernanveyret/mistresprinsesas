@@ -8,8 +8,8 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
-        name: 'Mis 3 pincesas',
-        short_name: 'Mis 3 princesas',
+        name: 'Mis Tres Pincesas',
+        short_name: 'Mis Tres Princesas',
         description: 'Carrito de compras online',
         theme_color: '#ffffff',
         background_color: '#ffffff',
