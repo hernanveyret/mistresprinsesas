@@ -57,7 +57,7 @@ function App() {
 
   // copia al portapapeles la url
    const sharedApp = () => {
-    navigator.clipboard.writeText('https://mistresprinsesas.vercel.app/') 
+    navigator.clipboard.writeText('https://mistresprincesas.vercel.app/') 
     .then(() => {
       setSharedLink(true)
       setTimeout(() => {
